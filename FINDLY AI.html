@@ -1,0 +1,168 @@
+<!DOCTYPE html><html lang="kk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>FINDLY AI</title>
+<style>
+:root{--n:#142D4E;--b:#3478F6;--bg:#F5F7FB;--c:#fff;--g:#20B486;--t:#1b2433;--m:#6b7788;--bd:#e3e8f0;--hero:#142D4E;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1626;--c:#17233a;--t:#e8eef9;--m:#9aa7bd;--bd:#27364f;--n:#8fb4ff;--hero:#17305a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1626;--c:#17233a;--t:#e8eef9;--m:#9aa7bd;--bd:#27364f;--n:#8fb4ff;--hero:#17305a;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--t);font:15px/1.5 Manrope,Inter,system-ui,sans-serif}
+header{position:sticky;top:0;z-index:5;background:var(--c);border-bottom:1px solid var(--bd);padding:8px 16px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.logo{font-weight:800;color:var(--n);font-size:20px;margin-right:12px;text-decoration:none}.logo b{color:var(--b)}
+nav{display:flex;gap:2px;flex-wrap:wrap;flex:1}nav a{padding:7px 11px;border-radius:9px;color:var(--m);text-decoration:none;font-weight:600;transition:.2s;font-size:14px}
+nav a:hover,nav a.on{background:var(--bg);color:var(--b)}
+main{max-width:1100px;margin:0 auto;padding:20px 16px 60px}
+.hero{background:linear-gradient(135deg,var(--hero),#2457a8);color:#fff;border-radius:22px;padding:44px 28px;margin-bottom:22px}
+.hero h1{margin:0 0 10px;font-size:clamp(26px,5vw,42px)}.hero p{max-width:640px;opacity:.9}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-block;border:0;background:var(--b);color:#fff;padding:9px 16px;border-radius:11px;font:600 14px inherit;cursor:pointer;text-decoration:none;transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px #3478f64d}.btn.g{background:var(--g)}.btn.o{background:var(--bg);color:var(--t);border:1px solid var(--bd)}.btn.r{background:#e5484d}.btn.big{padding:13px 22px;font-size:16px}.btn.s{padding:5px 10px;font-size:13px}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.card{background:var(--c);border:1px solid var(--bd);border-radius:16px;padding:16px;transition:.2s}
+.item{padding:0;overflow:hidden;cursor:pointer}.item:hover{transform:translateY(-4px);box-shadow:0 10px 26px #142d4e1f}
+.item .im{height:150px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:42px}.item .im img{width:100%;height:100%;object-fit:cover}.item .bd{padding:14px}
+.num{display:block;font-size:32px;color:var(--n)}small,.mut{color:var(--m)}
+.badge{display:inline-block;padding:2px 9px;border-radius:99px;font-size:12px;font-weight:700;margin:0 4px 4px 0}
+.g{--k:#20B486}.b{--k:#3478F6}.p{--k:#8a5cf5}.x{--k:#8793a5}.badge{background:color-mix(in srgb,var(--k,#888) 16%,transparent);color:var(--k,#888)}
+.demo{--k:#e8890c}
+input,select,textarea{width:100%;padding:9px 11px;border:1px solid var(--bd);border-radius:10px;background:var(--c);color:var(--t);font:inherit}
+label{display:block;font-weight:600;margin:12px 0 4px}.form{max-width:680px}
+.drop{border:2px dashed var(--bd);border-radius:14px;padding:24px;text-align:center;cursor:pointer;color:var(--m)}.drop.h{border-color:var(--b);background:#3478f60f}
+.prev img{width:90px;height:90px;object-fit:cover;border-radius:10px;margin:8px 8px 0 0}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:12px 0 26px}.steps b{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--g);color:#fff;margin-bottom:6px}
+.pct{font-size:40px;font-weight:800;color:var(--g)}.ok{color:var(--g)}.no{color:#e5484d}
+.bar{display:grid;grid-template-columns:120px 1fr 36px;gap:8px;align-items:center;margin:6px 0}.bar i{display:block;height:12px;border-radius:6px;background:var(--b)}
+.pie{width:150px;height:150px;border-radius:50%}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:8px;border-bottom:1px solid var(--bd);text-align:left}
+.tw{overflow-x:auto}.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--n);color:#fff;padding:10px 18px;border-radius:12px;opacity:0;transition:.3s;pointer-events:none;z-index:9}#toast.on{opacity:1}
+.nb{background:#e5484d;color:#fff;border-radius:99px;font-size:11px;padding:1px 6px;margin-left:3px}
+.un{background:#3478f61a}
+</style></head><body>
+<header><a class="logo" href="#home">FINDLY <b>AI</b></a><nav id="nav"></nav></header>
+<main id="app"></main><div id="toast"></div>
+<script>
+const CATS=['Құжаттар','Смартфондар','Ноутбуктер','Кілттер','Сөмкелер','Киім','Әшекейлер','Басқа заттар'];
+const ICO=['📄','📱','💻','🔑','🎒','👕','💍','📦'];
+const COLS=['қара','ақ','көк','қызыл','жасыл','сары','сұр','күміс','қоңыр'];
+const LOCS=['Бас корпус','Кітапхана','Асхана','Спорт кешені','Жатақхана','Аула'];
+const ST={active:['Белсенді','g'],found:['Табылды','b'],returned:['Қайтарылды','p'],closed:['Жабық','x']};
+const PL={cat:'Санат сәйкес',col:'Түсі сәйкес',name:'Атау ұқсастығы',desc:'Сипаттама ұқсастығы',loc:'Орны сәйкес',tm:'Уақыт аралығы сәйкес'};
+const LB={cat:'санаты',col:'түсі',name:'атауы',desc:'сипаттамасы',loc:'орналасқан орны',tm:'уақыт аралығы'};
+let mem=null;
+function load(){try{const s=localStorage.getItem('findly1');if(s)return JSON.parse(s)}catch(e){}return mem||{u:[],lost:[],found:[],m:[],cl:[],h:[],n:[],cur:null,seq:1}}
+let db=load();
+function save(){mem=db;try{localStorage.setItem('findly1',JSON.stringify(db))}catch(e){toast('Жад толы: фото сақталмауы мүмкін')}}
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const nid=()=>db.seq++,me=()=>db.u.find(u=>u.id==db.cur),uname=i=>(db.u.find(u=>u.id==i)||{}).name||'—',fd=d=>(d||'').replace('T',' ');
+function toast(t){const e=$('#toast');e.textContent=t;e.className='on';setTimeout(()=>e.className='',2600)}
+async function sha(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+const notify=(uid,text,link)=>{db.n.push({id:nid(),uid,text,link,read:0,t:Date.now()})};
+const hist=(type,rid,from,to)=>{db.h.push({id:nid(),type,rid,from,to,by:db.cur,t:Date.now()})};
+function setSt(type,it,s){if(it.status==s)return;hist(type,it.id,it.status,s);it.status=s;if(it.uid!=db.cur)notify(it.uid,`«${it.name}» хабарламасының статусы өзгерді: ${ST[s][0]}`,'#item/'+type+'/'+it.id)}
+/* ---- AI matching: weighted similarity ---- */
+const SY={'телеф':'ph','смарт':'ph','ұялы':'ph','phone':'ph','мобил':'ph','mobil':'ph','ноутб':'lp','lapto':'lp','кілт':'ky','сөмке':'bg'};
+const STOP=['және','бар','түсті'];
+const tok=s=>new Set(((s||'').toLowerCase().match(/[a-zа-яәіңғүұқөһё0-9]+/g)||[]).filter(w=>w.length>1&&!STOP.includes(w)).map(w=>{w=w.slice(0,5);return SY[w]||w}));
+function dice(a,b){const A=tok(a),B=tok(b);if(!A.size||!B.size)return 0;let i=0;A.forEach(x=>B.has(x)&&i++);return 2*i/(A.size+B.size)}
+function score(l,f){const dd=(new Date(f.dt)-new Date(l.dt))/864e5;
+ const p={cat:l.cat==f.cat?1:0,col:l.color==f.color?1:0,name:dice(l.name,f.name),desc:dice(l.desc+' '+l.feat,f.desc+' '+f.feat),loc:l.loc==f.loc?1:0,tm:dd<-1?0:dd<=1?1:dd<=3?.7:dd<=7?.4:0};
+ const w={cat:20,col:15,name:25,desc:15,loc:15,tm:10};return{total:Math.round(Object.keys(w).reduce((s,k)=>s+w[k]*p[k],0)),p}}
+const lvl=s=>s>=85?['Жоғары сәйкестік','g']:s>=60?['Орташа сәйкестік','b']:['Төмен сәйкестік','x'];
+function expl(p,s){const ok=Object.keys(p).filter(k=>p[k]>=.5).map(k=>LB[k]);return ok.length?`Бұл табылған зат сіздің жоғалған затыңызға сәйкес келу ықтималдығы ${lvl(s)[0].split(' ')[0].toLowerCase()}, себебі оның ${ok.join(', ')} ұқсас.`:'Сәйкестік белгілері әлсіз.'}
+function runMatch(type,it){(type=='lost'?db.found:db.lost).filter(o=>o.status=='active').forEach(o=>{const l=type=='lost'?it:o,f=type=='lost'?o:it;if(db.m.some(m=>m.l==l.id&&m.f==f.id))return;const r=score(l,f);if(r.total<50||!r.p.cat)return;
+ db.m.push({id:nid(),l:l.id,f:f.id,s:r.total,p:r.p,ex:expl(r.p,r.total),t:Date.now()});const tx=`Ықтимал сәйкестік табылды: «${l.name}» ↔ «${f.name}» (${r.total}%)`;notify(l.uid,tx,'#match');if(f.uid!=l.uid)notify(f.uid,tx,'#match')})}
+const L=m=>db.lost.find(x=>x.id==m.l),Fo=m=>db.found.find(x=>x.id==m.f),vm=()=>db.m.filter(m=>L(m)&&Fo(m));
+/* ---- auth ---- */
+async function doReg(){const n=$('#rn').value.trim(),e=$('#re').value.trim().toLowerCase(),p=$('#rp').value;if(!n||!/\S+@\S+\.\S+/.test(e)||p.length<6)return toast('Деректерді дұрыс толтырыңыз (құпиясөз ≥ 6 таңба)');if(db.u.some(u=>u.email==e))return toast('Бұл email тіркелген');
+ const u={id:nid(),name:n,email:e,pw:await sha(p),role:'user',t:Date.now()};db.u.push(u);db.cur=u.id;save();toast('Тіркелу сәтті аяқталды');location.hash='#home';render()}
+async function doLogin(){const e=$('#le').value.trim().toLowerCase(),u=db.u.find(x=>x.email==e);if(!u||u.pw!=await sha($('#lp').value))return toast('Email немесе құпиясөз қате');if(u.blocked)return toast('Аккаунт бұғатталған');db.cur=u.id;save();toast('Қош келдіңіз!');location.hash='#home';render()}
+function logout(){db.cur=null;save();location.hash='#home';render()}
+/* ---- reports ---- */
+let PH=[];
+function addFiles(fs){[...fs].slice(0,3-PH.length).forEach(f=>{const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const c=document.createElement('canvas'),k=Math.min(1,360/Math.max(im.width,im.height));c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);PH.push(c.toDataURL('image/jpeg',.7));prev()};im.src=r.result};r.readAsDataURL(f)})}
+const prev=()=>{const e=$('#prev');if(e)e.innerHTML=PH.map(p=>`<img src="${p}" alt="">`).join('')};
+function publish(){const g=i=>$('#'+i).value.trim(),t=document.querySelector('input[name=tp]:checked').value;
+ const d={name:g('f_name'),cat:g('f_cat'),desc:g('f_desc'),color:g('f_col'),feat:g('f_feat'),loc:g('f_loc'),dt:g('f_dt'),contact:g('f_ct')};
+ if(!d.name||!d.desc||!d.loc||!d.dt||!d.contact)return toast('Міндетті өрістерді толтырыңыз');
+ const it={...d,id:nid(),uid:db.cur,ph:PH.slice(),status:'active',t:Date.now()};(t=='lost'?db.lost:db.found).push(it);hist(t,it.id,'—','active');runMatch(t,it);save();PH=[];toast('Хабарлама сәтті жарияланды');location.hash='#item/'+t+'/'+it.id}
+function delIt(t,id){if(!confirm('Хабарламаны жою керек пе?'))return;const a=t=='lost'?db.lost:db.found;db[t]=a.filter(x=>x.id!=id);db.m=db.m.filter(m=>t=='lost'?m.l!=id:m.f!=id);save();toast('Жойылды');location.hash='#profile'}
+function editIt(t,id){const it=(t=='lost'?db.lost:db.found).find(x=>x.id==id),n=prompt('Атауы',it.name);if(!n)return;const d=prompt('Сипаттамасы',it.desc);if(!d)return;it.name=n;it.desc=d;save();toast('Сақталды');render()}
+function stat(t,id,s){setSt(t,(t=='lost'?db.lost:db.found).find(x=>x.id==id),s);save();toast('Статус жаңартылды');render()}
+/* ---- claims ---- */
+function claim(mid){const p=prompt('Меншік иесі екеніңізді растайтын ерекшелікті жазыңыз');if(!p)return;const m=db.m.find(x=>x.id==mid);db.cl.push({id:nid(),m:mid,by:db.cur,proof:p,st:'pending',conf:{l:0,f:0},t:Date.now()});notify(Fo(m).uid,`«${Fo(m).name}» затына меншік құқығына өтінім түсті`,'#match');save();toast('Өтінім жіберілді');render()}
+function decide(cid,ok){const c=db.cl.find(x=>x.id==cid),m=db.m.find(x=>x.id==c.m);c.st=ok?'approved':'rejected';notify(c.by,ok?'Өтініміңіз қабылданды. Байланыс деректері ашылды':'Өтініміңіз қабылданбады','#match');if(ok){setSt('lost',L(m),'found');setSt('found',Fo(m),'found')}save();render()}
+function conf(cid){const c=db.cl.find(x=>x.id==cid),m=db.m.find(x=>x.id==c.m);c.conf[me().id==L(m).uid?'l':'f']=1;
+ if(c.conf.l&&c.conf.f){c.st='done';setSt('lost',L(m),'returned');setSt('found',Fo(m),'returned');notify(L(m).uid,'Затыңыз қайтарылды','#item/lost/'+m.l);notify(Fo(m).uid,'Зат иесіне қайтарылды','#item/found/'+m.f)}save();toast('Расталды');render()}
+function seeContact(t,it){const u=me();if(!u)return false;if(u.role=='admin'||u.id==it.uid)return true;
+ return db.cl.some(c=>['approved','done'].includes(c.st)&&(m=>m&&L(m)&&Fo(m)&&(t=='lost'?m.l==it.id:m.f==it.id)&&(u.id==L(m).uid||u.id==Fo(m).uid))(db.m.find(x=>x.id==c.m)))}
+/* ---- views ---- */
+const badge=s=>`<span class="badge ${ST[s][1]}">${ST[s][0]}</span>`;
+const dm=it=>it.demo?'<span class="badge demo">ДЕМО</span>':'';
+function card(it,t){const i=CATS.indexOf(it.cat);return`<div class="card item" onclick="location.hash='#item/${t}/${it.id}'"><div class="im">${it.ph&&it.ph[0]?`<img src="${it.ph[0]}" alt="">`:ICO[i]||'📦'}</div><div class="bd">${badge(it.status)}<span class="badge ${t=='lost'?'x':'g'}">${t=='lost'?'Жоғалды':'Табылды'}</span>${dm(it)}<h3 style="margin:4px 0">${esc(it.name)}</h3><small>${esc(it.cat)} · ${esc(it.color)}</small><p class="mut" style="margin:6px 0">${esc(it.desc.slice(0,70))}</p><small>📍 ${esc(it.loc)}<br>🕒 ${fd(it.dt)}<br>👤 ${esc(uname(it.uid))}</small></div></div>`}
+const need=()=>`<div class="card"><h2>Кіру қажет</h2><p>Бұл бөлімді көру үшін жүйеге кіріңіз.</p><a class="btn" href="#auth">Кіру / Тіркелу</a></div>`;
+let FL={q:'',cat:'',st:'',col:'',loc:'',d:'',sort:'new'},LT='lost';
+function res(){const a=(LT=='lost'?db.lost:db.found).filter(x=>(!FL.q||[x.name,x.cat,x.color,x.loc,x.desc].join(' ').toLowerCase().includes(FL.q.toLowerCase()))&&(!FL.cat||x.cat==FL.cat)&&(!FL.st||x.status==FL.st)&&(!FL.col||x.color==FL.col)&&(!FL.loc||x.loc==FL.loc)&&(!FL.d||x.dt.startsWith(FL.d)));
+ a.sort((x,y)=>FL.sort=='new'?y.t-x.t:x.t-y.t);const e=$('#res');if(e)e.innerHTML=a.length?a.map(x=>card(x,LT)).join(''):'<p class="mut">Ештеңе табылмады</p>'}
+const opts=(a,v,all)=>(all?`<option value="">${all}</option>`:'')+a.map(x=>`<option ${x==v?'selected':''}>${x}</option>`).join('');
+function listPage(t){LT=t;setTimeout(res);return`<h1>${t=='lost'?'Жоғалған заттар':'Табылған заттар'}</h1><div class="card" style="margin-bottom:16px"><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px">
+<input placeholder="Іздеу…" value="${esc(FL.q)}" oninput="FL.q=this.value;res()"><select onchange="FL.cat=this.value;res()">${opts(CATS,FL.cat,'Барлық санат')}</select><select onchange="FL.col=this.value;res()">${opts(COLS,FL.col,'Барлық түс')}</select><select onchange="FL.loc=this.value;res()">${opts(LOCS,FL.loc,'Барлық орын')}</select>
+<select onchange="FL.st=this.value;res()"><option value="">Барлық статус</option>${Object.keys(ST).map(k=>`<option value="${k}" ${FL.st==k?'selected':''}>${ST[k][0]}</option>`).join('')}</select><input type="date" value="${FL.d}" onchange="FL.d=this.value;res()"><select onchange="FL.sort=this.value;res()"><option value="new">Жаңалары алдымен</option><option value="old" ${FL.sort=='old'?'selected':''}>Ескілері алдымен</option></select><button class="btn o" onclick="FL={q:'',cat:'',st:'',col:'',loc:'',d:'',sort:'new'};render()">Тазалау</button></div></div><div class="grid" id="res"></div>`}
+const V={
+home(){const all=[...db.lost.map(x=>[x,'lost']),...db.found.map(x=>[x,'found'])],ret=all.filter(a=>a[0].status=='returned').length;
+ return`<section class="hero"><h1>Жоғалған затыңызды бірге табайық!</h1><p>FINDLY AI — жасанды интеллект арқылы жоғалған және табылған заттарды автоматты түрде сәйкестендіретін ақылды платформа.</p><p><i>Маңыздыны тап. AI көмегімен тезірек.</i></p><div class="row"><a class="btn big" href="#new/lost">Мен зат жоғалттым</a><a class="btn big g" href="#new/found">Мен зат таптым</a></div></section>
+<div class="grid4">${[['Барлық хабарламалар',all.length],['Жоғалған заттар',db.lost.length],['Табылған заттар',db.found.length],['Сәтті қайтарылғандар',ret]].map(s=>`<div class="card"><small>${s[0]}</small><b class="num">${s[1]}</b></div>`).join('')}</div>
+<h2>Соңғы хабарламалар</h2><div class="grid">${all.sort((a,b)=>b[0].t-a[0].t).slice(0,6).map(a=>card(a[0],a[1])).join('')||'<p class="mut">Әзірге хабарлама жоқ. Бірінші болып жариялаңыз немесе админ панелінен демо сценарийді іске қосыңыз.</p>'}</div>
+<h2 style="margin-top:28px">Платформа қалай жұмыс істейді?</h2><div class="steps">${[['Хабарлама жасаңыз','Жоғалған немесе табылған зат туралы мәлімет жариялаңыз.'],['AI ықтимал сәйкестікті табады','Алгоритм атауды, түсті, орынды және уақытты салыстырады.'],['Затыңызды қайтарып алыңыз','Меншік құқығын растап, затты қауіпсіз қайтарып алыңыз.']].map((s,i)=>`<div class="card"><b>${i+1}</b><h3 style="margin:0">${s[0]}</h3><p class="mut">${s[1]}</p></div>`).join('')}</div>`},
+lost:()=>listPage('lost'),found:()=>listPage('found'),
+item(t,id){const it=(t=='lost'?db.lost:db.found).find(x=>x.id==id);if(!it)return'<div class="card">Хабарлама табылмады</div>';const u=me(),own=u&&(u.id==it.uid||u.role=='admin');
+ const hs=db.h.filter(h=>h.type==t&&h.rid==it.id);
+ return`<a href="#${t}">← Артқа</a><div class="card" style="margin-top:10px"><div class="row">${badge(it.status)}<span class="badge ${t=='lost'?'x':'g'}">${t=='lost'?'Жоғалды':'Табылды'}</span>${dm(it)}</div><h1 style="margin:6px 0">${esc(it.name)}</h1>
+<div class="prev">${(it.ph||[]).map(p=>`<img src="${p}" alt="">`).join('')}</div>
+<p>${esc(it.desc)}</p><p><b>Санат:</b> ${esc(it.cat)}<br><b>Түсі:</b> ${esc(it.color)}<br><b>Ерекшеліктері:</b> ${esc(it.feat||'—')}<br><b>Орны:</b> ${esc(it.loc)}<br><b>Күні:</b> ${fd(it.dt)}<br><b>Автор:</b> ${esc(uname(it.uid))}<br><b>Байланыс:</b> ${seeContact(t,it)?esc(it.contact):'<span class="mut">🔒 Меншік өтініміңіз мақұлданғаннан кейін ғана ашылады</span>'}</p>
+${own?`<div class="row"><button class="btn s" onclick="editIt('${t}',${it.id})">Өңдеу</button><button class="btn s o" onclick="stat('${t}',${it.id},'closed')">Жабу</button><button class="btn s r" onclick="delIt('${t}',${it.id})">Жою</button>${u.role=='admin'?`<select style="width:auto" onchange="stat('${t}',${it.id},this.value)">${Object.keys(ST).map(k=>`<option value="${k}" ${k==it.status?'selected':''}>${ST[k][0]}</option>`).join('')}</select>`:''}</div>`:''}
+<h3>Статус тарихы</h3>${hs.map(h=>`<small>${new Date(h.t).toLocaleString('kk-KZ')}: ${h.from=='—'?'—':ST[h.from][0]} → ${ST[h.to][0]}</small><br>`).join('')}</div>`},
+new(t){if(!me())return need();PH=[];t=t||'lost';return`<h1>Хабарлама жасау</h1><div class="card form"><label>Хабарлама түрі</label><div class="row"><label style="margin:0"><input type="radio" name="tp" value="lost" ${t=='lost'?'checked':''} style="width:auto"> Жоғалды</label><label style="margin:0"><input type="radio" name="tp" value="found" ${t=='found'?'checked':''} style="width:auto"> Табылды</label></div>
+<label>Зат атауы *</label><input id="f_name" placeholder="Мысалы: Қара Samsung смартфоны"><label>Санат</label><select id="f_cat">${opts(CATS)}</select><label>Түсі</label><select id="f_col">${opts(COLS)}</select><label>Толық сипаттама *</label><textarea id="f_desc" rows="3"></textarea><label>Ерекшеліктері</label><input id="f_feat" placeholder="Сызат, жапсырма, чехол…"><label>Орны *</label><select id="f_loc">${opts(LOCS)}</select><label>Күні мен уақыты *</label><input id="f_dt" type="datetime-local"><label>Байланыс деректері *</label><input id="f_ct" placeholder="Телефон немесе email (жария көрсетілмейді)">
+<label>Фото (3-ке дейін)</label><div class="drop" id="dz" onclick="$('#fi').click()" ondragover="event.preventDefault();this.classList.add('h')" ondragleave="this.classList.remove('h')" ondrop="event.preventDefault();this.classList.remove('h');addFiles(event.dataTransfer.files)">Суретті осында сүйреп әкеліңіз немесе басып таңдаңыз</div><input id="fi" type="file" accept="image/*" capture="environment" multiple hidden onchange="addFiles(this.files)"><div class="prev" id="prev"></div><br><button class="btn big" onclick="publish()">Хабарламаны жариялау</button></div>`},
+match(){const u=me();if(!u)return need();const ms=vm().filter(m=>u.role=='admin'||L(m).uid==u.id||Fo(m).uid==u.id).sort((a,b)=>b.s-a.s);
+ return`<h1>AI сәйкестендіру</h1><p class="mut">AI тек ықтимал сәйкестікті ұсынады. Меншік иесін пайдаланушылар өтінім және растау арқылы анықтайды.</p>${ms.map(m=>{const l=L(m),f=Fo(m),lv=lvl(m.s),c=db.cl.find(x=>x.m==m.id&&x.st!='rejected');let act='';
+ if(!c&&u.id==l.uid)act=`<button class="btn g" onclick="claim(${m.id})">Меншік құқығына өтінім беру</button>`;
+ else if(c){const key=u.id==l.uid?'l':u.id==f.uid?'f':null;act=`<p><b>Өтінім:</b> «${esc(c.proof)}» — ${{pending:'қаралуда',approved:'қабылданды',done:'қайтарылды'}[c.st]}</p>`;
+  if(c.st=='pending'&&(u.id==f.uid||u.role=='admin'))act+=`<button class="btn g s" onclick="decide(${c.id},1)">Мақұлдау</button> <button class="btn r s" onclick="decide(${c.id},0)">Қабылдамау</button>`;
+  if(c.st=='approved'){act+=`<p>Байланыс: ${esc(l.contact)} / ${esc(f.contact)}</p>`;if(key&&!c.conf[key])act+=`<button class="btn" onclick="conf(${c.id})">Қайтарылуын растау</button>`;else if(key)act+='<small>Сіз растадыңыз, екінші тарапты күтіңіз</small>'}}
+ return`<div class="card" style="margin-bottom:14px"><div class="row"><span class="pct">${m.s}%</span><span class="badge ${lv[1]}">${lv[0]}</span></div><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:4px">${Object.keys(PL).map(k=>`<div><span class="${m.p[k]>=.5?'ok':'no'}">${m.p[k]>=.5?'✓':'✗'}</span> ${PL[k]} <small>(${Math.round(m.p[k]*100)}%)</small></div>`).join('')}</div><p><b>AI түсіндірмесі:</b> «${esc(m.ex)}»</p><div class="two">${card(l,'lost')}${card(f,'found')}</div><div style="margin-top:12px">${act}</div></div>`}).join('')||'<div class="card">Әзірге ықтимал сәйкестік жоқ.</div>'}`},
+stats(){const a=SF.a,b=SF.b,ok=x=>{const d=new Date(x.t).toISOString().slice(0,10);return(!a||d>=a)&&(!b||d<=b)};const ls=db.lost.filter(ok),fs=db.found.filter(ok),all=[...ls,...fs],ret=all.filter(x=>x.status=='returned').length;
+ const cnt=(arr,k)=>{const r={};arr.forEach(x=>r[x[k]]=(r[x[k]]||0)+1);return r},bars=o=>{const mx=Math.max(1,...Object.values(o));return Object.entries(o).map(([k,v])=>`<div class="bar"><span>${esc(k)}</span><i style="width:${v/mx*100}%"></i><b>${v}</b></div>`).join('')||'<p class="mut">Дерек жоқ</p>'};
+ const sc=cnt(all,'status'),cols={active:'#20B486',found:'#3478F6',returned:'#8a5cf5',closed:'#8793a5'};let acc=0;const tot=all.length||1,pie=Object.keys(sc).map(k=>{const s=acc;acc+=sc[k]/tot*100;return`${cols[k]} ${s}% ${acc}%`}).join(',');
+ const dd=cnt(all.map(x=>({d:new Date(x.t).toISOString().slice(0,10)})),'d'),ks=Object.keys(dd).sort(),mx=Math.max(1,...Object.values(dd)),pts=ks.map((k,i)=>`${ks.length>1?i/(ks.length-1)*580+10:300},${150-dd[k]/mx*130}`).join(' ');
+ return`<h1>Статистика және аналитика</h1><div class="row" style="margin-bottom:14px"><input type="date" style="width:auto" value="${a}" onchange="SF.a=this.value;render()"><input type="date" style="width:auto" value="${b}" onchange="SF.b=this.value;render()"><button class="btn o" onclick="SF={a:'',b:''};render()">Тазалау</button></div>
+<div class="grid4">${[['Жоғалған заттар',ls.length],['Табылған заттар',fs.length],['Қайтарылғандар',ret],['AI сәйкестік үміткерлері',vm().filter(m=>ok(L(m))||ok(Fo(m))).length]].map(s=>`<div class="card"><small>${s[0]}</small><b class="num">${s[1]}</b></div>`).join('')}</div>
+<div class="two"><div class="card"><h3>Санаттар бойынша</h3>${bars(cnt(all,'cat'))}</div><div class="card"><h3>Орындар бойынша</h3>${bars(cnt(all,'loc'))}</div>
+<div class="card"><h3>Статустар (дөңгелек диаграмма)</h3><div class="row"><div class="pie" style="background:${all.length?`conic-gradient(${pie})`:'var(--bg)'}"></div><div>${Object.keys(sc).map(k=>`<div><span class="badge ${ST[k][1]}">${ST[k][0]}</span> ${sc[k]}</div>`).join('')}</div></div></div>
+<div class="card"><h3>Күн бойынша хабарламалар</h3><svg viewBox="0 0 600 160" style="width:100%"><polyline fill="none" stroke="#3478F6" stroke-width="3" points="${pts}"/>${pts.split(' ').filter(Boolean).map(p=>`<circle cx="${p.split(',')[0]}" cy="${p.split(',')[1]}" r="4" fill="#20B486"/>`).join('')}</svg><small>${ks.join(' · ')}</small></div></div>`},
+profile(){const u=me();if(!u)return need();const mine=[...db.lost.filter(x=>x.uid==u.id).map(x=>[x,'lost']),...db.found.filter(x=>x.uid==u.id).map(x=>[x,'found'])],mm=vm().filter(m=>L(m).uid==u.id||Fo(m).uid==u.id).length;
+ return`<h1>Профиль</h1><div class="card"><h3>${esc(u.name)}</h3><p>${esc(u.email)} · ${u.role=='admin'?'Әкімші':'Пайдаланушы'}</p><div class="row"><button class="btn s o" onclick="const n=prompt('Жаңа аты',me().name);if(n){me().name=n;save();render()}">Атын өзгерту</button><a class="btn s" href="#match">Менің AI сәйкестіктерім (${mm})</a><a class="btn s o" href="#notif">Хабарламалар</a><button class="btn s r" onclick="logout()">Шығу</button></div></div>
+<h2>Менің жоғалған заттарым</h2><div class="grid">${mine.filter(a=>a[1]=='lost').map(a=>card(...a)).join('')||'<p class="mut">Жоқ</p>'}</div><h2>Менің табылған заттарым</h2><div class="grid">${mine.filter(a=>a[1]=='found').map(a=>card(...a)).join('')||'<p class="mut">Жоқ</p>'}</div>`},
+notif(){const u=me();if(!u)return need();const ns=db.n.filter(n=>n.uid==u.id).sort((a,b)=>b.t-a.t);
+ return`<h1>Хабарламалар</h1><button class="btn s o" onclick="db.n.filter(n=>n.uid==db.cur).forEach(n=>n.read=1);save();render()">Барлығын оқылды деп белгілеу</button><br><br>${ns.map(n=>`<div class="card ${n.read?'':'un'}" style="margin-bottom:8px;cursor:pointer" onclick="readN(${n.id})">${esc(n.text)}<br><small>${new Date(n.t).toLocaleString('kk-KZ')}</small></div>`).join('')||'<p class="mut">Хабарлама жоқ</p>'}`},
+admin(){const u=me();if(!u||u.role!='admin')return`<div class="card"><h2>Рұқсат жоқ</h2><p>Бұл бөлім тек әкімшілерге арналған.</p></div>`;
+ const rows=[...db.lost.map(x=>[x,'lost']),...db.found.map(x=>[x,'found'])];
+ return`<h1>Әкімші панелі</h1><div class="row"><button class="btn g" onclick="demo()">Демо сценарийді іске қосу</button></div><h2>Пайдаланушылар</h2><div class="card tw"><table>${db.u.map(x=>`<tr><td>${esc(x.name)}</td><td>${esc(x.email)}</td><td>${x.role}</td><td>${x.id!=u.id?`<button class="btn s o" onclick="blk(${x.id})">${x.blocked?'Бұғаттан шығару':'Бұғаттау'}</button>`:''}</td></tr>`).join('')}</table></div>
+<h2>Барлық хабарламалар</h2><div class="card tw"><table>${rows.map(([x,t])=>`<tr><td><a href="#item/${t}/${x.id}">${esc(x.name)}</a> ${dm(x)}</td><td>${t=='lost'?'Жоғалды':'Табылды'}</td><td>${esc(uname(x.uid))}</td><td>${badge(x.status)}</td><td><button class="btn s r" onclick="delIt('${t}',${x.id})">Жою</button></td></tr>`).join('')||'<tr><td>Жоқ</td></tr>'}</table></div>
+<h2>AI нәтижелерін бақылау</h2><div class="card tw"><table>${vm().map(m=>`<tr><td>${esc(L(m).name)} ↔ ${esc(Fo(m).name)}</td><td><b>${m.s}%</b></td><td>${lvl(m.s)[0]}</td></tr>`).join('')||'<tr><td>Жоқ</td></tr>'}</table></div>
+<h2>Меншік өтінімдері</h2><div class="card tw"><table>${db.cl.map(c=>`<tr><td>${esc(uname(c.by))}</td><td>${esc(c.proof)}</td><td>${{pending:'қаралуда',approved:'қабылданды',rejected:'қабылданбады',done:'қайтарылды'}[c.st]}</td><td>${c.st=='pending'?`<button class="btn s g" onclick="decide(${c.id},1)">Мақұлдау</button> <button class="btn s r" onclick="decide(${c.id},0)">Қабылдамау</button>`:''}</td></tr>`).join('')||'<tr><td>Жоқ</td></tr>'}</table></div>
+<h2>Статус тарихы</h2><div class="card tw"><table>${db.h.slice(-12).reverse().map(h=>`<tr><td>${new Date(h.t).toLocaleString('kk-KZ')}</td><td>${h.type=='lost'?'Жоғалды':'Табылды'} #${h.rid}</td><td>${h.from=='—'?'—':ST[h.from][0]} → ${ST[h.to][0]}</td></tr>`).join('')}</table></div>`},
+auth(){return`<div class="two"><div class="card"><h2>Кіру</h2><label>Email</label><input id="le"><label>Құпиясөз</label><input id="lp" type="password"><br><br><button class="btn" onclick="doLogin()">Кіру</button><p class="mut"><small>Демо: demoa@findly.kz / demob@findly.kz — құпиясөз demo123 (админ панелінен демо іске қосылғаннан кейін). Әкімші: admin@findly.kz / admin123</small></p></div><div class="card"><h2>Тіркелу</h2><label>Аты-жөні</label><input id="rn"><label>Email</label><input id="re"><label>Құпиясөз (кемінде 6 таңба)</label><input id="rp" type="password"><br><br><button class="btn g" onclick="doReg()">Тіркелу</button></div></div>`}};
+let SF={a:'',b:''};
+function readN(id){const n=db.n.find(x=>x.id==id);n.read=1;save();location.hash=n.link||'#notif';render()}
+function blk(id){const x=db.u.find(u=>u.id==id);x.blocked=!x.blocked;save();render()}
+async function demo(){const mk=async(n,e)=>{let u=db.u.find(x=>x.email==e);if(!u){u={id:nid(),name:n,email:e,pw:await sha('demo123'),role:'user',demo:1,t:Date.now()};db.u.push(u)}return u},A=await mk('Демо A (Айгерім)','demoa@findly.kz'),B=await mk('Демо B (Нұрлан)','demob@findly.kz'),cur=db.cur,now=Date.now(),iso=ms=>new Date(ms-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,16);
+ db.cur=A.id;const l={id:nid(),uid:A.id,name:'Қара Samsung смартфоны',cat:'Смартфондар',color:'қара',desc:'Қара түсті Samsung телефоны жоғалды',feat:'экранында сызат бар',loc:'Кітапхана',dt:iso(now-6*36e5),contact:'+7 700 000 00 01 (демо)',ph:[],status:'active',t:now,demo:1};db.lost.push(l);hist('lost',l.id,'—','active');runMatch('lost',l);
+ db.cur=B.id;const f={id:nid(),uid:B.id,name:'Қара Samsung ұялы телефоны',cat:'Смартфондар',color:'қара',desc:'Қара түсті Samsung телефоны табылды',feat:'экраны сызылған',loc:'Кітапхана',dt:iso(now-3*36e5),contact:'+7 700 000 00 02 (демо)',ph:[],status:'active',t:now+1,demo:1};db.found.push(f);hist('found',f.id,'—','active');runMatch('found',f);db.cur=cur;save();toast('Демо деректер қосылды (ДЕМО белгісімен)');location.hash='#match';render()}
+function render(){const u=me(),h=(location.hash||'#home').slice(1).split('/'),un=u?db.n.filter(n=>n.uid==u.id&&!n.read).length:0;
+ const L_=[['home','Басты бет'],['lost','Жоғалған заттар'],['found','Табылған заттар'],['new','Хабарлама жасау'],['match','AI сәйкестендіру'],['stats','Статистика'],['profile','Профиль'],['notif','Хабарламалар'+(un?`<span class="nb">${un}</span>`:'')]];if(u&&u.role=='admin')L_.push(['admin','Админ']);
+ $('#nav').innerHTML=L_.map(x=>`<a href="#${x[0]}" class="${h[0]==x[0]?'on':''}">${x[1]}</a>`).join('')+(u?'':'<a href="#auth" class="'+(h[0]=='auth'?'on':'')+'">Кіру</a>');
+ $('#app').innerHTML=(V[h[0]]||V.home)(h[1],h[2])}
+window.onhashchange=()=>{render();scrollTo(0,0)};
+(async()=>{if(!db.u.some(u=>u.role=='admin')){db.u.push({id:nid(),name:'Әкімші',email:'admin@findly.kz',pw:await sha('admin123'),role:'admin',t:Date.now()});save()}render()})();
+</script></body></html>
