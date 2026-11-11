@@ -1,41 +1,170 @@
 <!DOCTYPE html><html lang="kk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>FINDLY AI</title>
 <style>
-:root{--n:#142D4E;--b:#3478F6;--bg:#F5F7FB;--c:#fff;--g:#20B486;--t:#1b2433;--m:#6b7788;--bd:#e3e8f0;--hero:#142D4E;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1626;--c:#17233a;--t:#e8eef9;--m:#9aa7bd;--bd:#27364f;--n:#8fb4ff;--hero:#17305a;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0e1626;--c:#17233a;--t:#e8eef9;--m:#9aa7bd;--bd:#27364f;--n:#8fb4ff;--hero:#17305a;color-scheme:dark}
+:root{--n:#142D4E;
+      --b:#3478F6;
+      --bg:#F5F7FB;
+      --c:#fff;
+      --g:#20B486;
+      --t:#1b2433;
+      --m:#6b7788;
+      --bd:#e3e8f0;
+      --hero:#142D4E;
+      box-sizing:border-box;
+      padding-top:env(safe-area-inset-top,0px);
+      padding-bottom:env(safe-area-inset-bottom,0px);
+      color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1626;
+                                                                  --c:#17233a;
+                                                                  --t:#e8eef9;
+                                                                  --m:#9aa7bd;
+                                                                  --bd:#27364f;
+                                                                  --n:#8fb4ff;
+                                                                  --hero:#17305a;
+                                                                  color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1626;
+                         --c:#17233a;
+                         --t:#e8eef9;
+                         --m:#9aa7bd;
+                         --bd:#27364f;
+                         --n:#8fb4ff;
+                         --hero:#17305a;
+                         color-scheme:dark}
 *{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--bg);color:var(--t);font:15px/1.5 Manrope,Inter,system-ui,sans-serif}
-header{position:sticky;top:0;z-index:5;background:var(--c);border-bottom:1px solid var(--bd);padding:8px 16px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
-.logo{font-weight:800;color:var(--n);font-size:20px;margin-right:12px;text-decoration:none}.logo b{color:var(--b)}
-nav{display:flex;gap:2px;flex-wrap:wrap;flex:1}nav a{padding:7px 11px;border-radius:9px;color:var(--m);text-decoration:none;font-weight:600;transition:.2s;font-size:14px}
+body{margin:0;background:var(--bg);
+     color:var(--t);
+     font:15px/1.5 Manrope,Inter,system-ui,sans-serif}
+header{position:sticky;
+       top:0;z-index:5;
+       background:var(--c);
+       border-bottom:1px solid var(--bd);
+       padding:8px 16px;
+       display:flex;
+       gap:6px;
+       align-items:center;
+       flex-wrap:wrap}
+.logo{font-weight:800;
+      color:var(--n);
+      font-size:20px;
+      margin-right:12px;
+      text-decoration:none}.logo b{color:var(--b)}
+nav{display:flex;
+    gap:2px;
+    flex-wrap:wrap;
+    flex:1}nav a{padding:7px 11px;
+                 border-radius:9px;
+                 color:var(--m);
+                 text-decoration:none;
+                 font-weight:600;
+                 transition:.2s;font-size:14px}
 nav a:hover,nav a.on{background:var(--bg);color:var(--b)}
-main{max-width:1100px;margin:0 auto;padding:20px 16px 60px}
-.hero{background:linear-gradient(135deg,var(--hero),#2457a8);color:#fff;border-radius:22px;padding:44px 28px;margin-bottom:22px}
+main{max-width:1100px;margin:0 auto;
+     padding:20px 16px 60px}
+.hero{background:linear-gradient(135deg,var(--hero),#2457a8);
+      color:#fff;border-radius:22px;padding:44px 28px;margin-bottom:22px}
 .hero h1{margin:0 0 10px;font-size:clamp(26px,5vw,42px)}.hero p{max-width:640px;opacity:.9}
-.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.btn{display:inline-block;border:0;background:var(--b);color:#fff;padding:9px 16px;border-radius:11px;font:600 14px inherit;cursor:pointer;text-decoration:none;transition:.2s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px #3478f64d}.btn.g{background:var(--g)}.btn.o{background:var(--bg);color:var(--t);border:1px solid var(--bd)}.btn.r{background:#e5484d}.btn.big{padding:13px 22px;font-size:16px}.btn.s{padding:5px 10px;font-size:13px}
-.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:22px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
-.card{background:var(--c);border:1px solid var(--bd);border-radius:16px;padding:16px;transition:.2s}
-.item{padding:0;overflow:hidden;cursor:pointer}.item:hover{transform:translateY(-4px);box-shadow:0 10px 26px #142d4e1f}
-.item .im{height:150px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:42px}.item .im img{width:100%;height:100%;object-fit:cover}.item .bd{padding:14px}
-.num{display:block;font-size:32px;color:var(--n)}small,.mut{color:var(--m)}
-.badge{display:inline-block;padding:2px 9px;border-radius:99px;font-size:12px;font-weight:700;margin:0 4px 4px 0}
+.row{display:flex;
+     gap:10px;flex-wrap:wrap;
+     align-items:center}
+.btn{display:inline-block;border:0;background:var(--b);
+     color:#fff;padding:9px 16px;
+     border-radius:11px;
+     font:600 14px inherit;cursor:pointer;
+     text-decoration:none;transition:.2s}
+.btn:hover{transform:translateY(-2px);
+           box-shadow:0 6px 16px #3478f64d}.btn.g{background:var(--g)}.btn.o{background:var(--bg);
+                                                                             color:var(--t);border:1px solid var(--bd)}.btn.r{background:#e5484d}.btn.big{padding:13px 22px;font-size:16px}.btn.s{padding:5px 10px;font-size:13px}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+       gap:14px;margin-bottom:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+      gap:16px}
+.card{background:var(--c);
+      border:1px solid var(--bd);
+      border-radius:16px;
+      padding:16px;transition:.2s}
+.item{padding:0;overflow:hidden;
+      cursor:pointer}.item:hover{transform:translateY(-4px);
+                                 box-shadow:0 10px 26px #142d4e1f}
+.item .im{height:150px;
+          background:var(--bg);
+          display:flex;align-items:center;
+          justify-content:center;
+          font-size:42px}.item .im img{width:100%;
+                                       height:100%;
+                                       object-fit:cover}.item .bd{padding:14px}
+.num{display:block;
+     font-size:32px;
+     color:var(--n)}small,.mut{color:var(--m)}
+.badge{display:inline-block;
+       padding:2px 9px;
+       border-radius:99px;
+       font-size:12px;
+       font-weight:700;margin:0 4px 4px 0}
 .g{--k:#20B486}.b{--k:#3478F6}.p{--k:#8a5cf5}.x{--k:#8793a5}.badge{background:color-mix(in srgb,var(--k,#888) 16%,transparent);color:var(--k,#888)}
 .demo{--k:#e8890c}
-input,select,textarea{width:100%;padding:9px 11px;border:1px solid var(--bd);border-radius:10px;background:var(--c);color:var(--t);font:inherit}
-label{display:block;font-weight:600;margin:12px 0 4px}.form{max-width:680px}
-.drop{border:2px dashed var(--bd);border-radius:14px;padding:24px;text-align:center;cursor:pointer;color:var(--m)}.drop.h{border-color:var(--b);background:#3478f60f}
-.prev img{width:90px;height:90px;object-fit:cover;border-radius:10px;margin:8px 8px 0 0}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:12px 0 26px}.steps b{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--g);color:#fff;margin-bottom:6px}
-.pct{font-size:40px;font-weight:800;color:var(--g)}.ok{color:var(--g)}.no{color:#e5484d}
-.bar{display:grid;grid-template-columns:120px 1fr 36px;gap:8px;align-items:center;margin:6px 0}.bar i{display:block;height:12px;border-radius:6px;background:var(--b)}
-.pie{width:150px;height:150px;border-radius:50%}
-table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:8px;border-bottom:1px solid var(--bd);text-align:left}
-.tw{overflow-x:auto}.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
-#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--n);color:#fff;padding:10px 18px;border-radius:12px;opacity:0;transition:.3s;pointer-events:none;z-index:9}#toast.on{opacity:1}
-.nb{background:#e5484d;color:#fff;border-radius:99px;font-size:11px;padding:1px 6px;margin-left:3px}
+input,select,textarea{width:100%;
+                      padding:9px 11px;border:1px solid var(--bd);
+                      border-radius:10px;background:var(--c);
+                      color:var(--t);font:inherit}
+label{display:block;
+      font-weight:600;
+      margin:12px 0 4px}.form{max-width:680px}
+.drop{border:2px dashed var(--bd);
+      border-radius:14px;
+      padding:24px;
+      text-align:center;
+      cursor:pointer;
+      color:var(--m)}.drop.h{border-color:var(--b);
+                             background:#3478f60f}
+.prev img{width:90px;
+          height:90px;
+          object-fit:cover;
+          border-radius:10px;
+          margin:8px 8px 0 0}
+.steps{display:grid;
+       grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+       gap:14px;margin:12px 0 26px}.steps b{display:inline-grid;place-items:center;
+                                            width:34px;
+                                            height:34px;
+                                            border-radius:50%;
+                                            background:var(--g);
+                                            color:#fff;
+                                            margin-bottom:6px}
+.pct{font-size:40px;
+     font-weight:800;color:var(--g)}.ok{color:var(--g)}.no{color:#e5484d}
+.bar{display:grid;
+     grid-template-columns:120px 1fr 36px;
+     gap:8px;
+     align-items:center;
+     margin:6px 0}.bar i{display:block;
+                         height:12px;
+                         border-radius:6px;
+                         background:var(--b)}
+.pie{width:150px;
+     height:150px;
+     border-radius:50%}
+table{width:100%;
+      border-collapse:collapse;
+      font-size:14px}td,th{padding:8px;
+                           border-bottom:1px solid var(--bd);text-align:left}
+.tw{overflow-x:auto}.two{display:grid;
+                         grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+                         gap:14px}
+#toast{position:fixed;
+       left:50%;
+       bottom:calc(24px + env(safe-area-inset-bottom,0px));
+       transform:translateX(-50%);
+       background:var(--n);
+       color:#fff;
+       padding:10px 18px;
+       border-radius:12px;
+       opacity:0;transition:.3s;
+       pointer-events:none;
+       z-index:9}#toast.on{opacity:1}
+.nb{background:#e5484d;
+    color:#fff;
+    border-radius:99px;
+    font-size:11px;
+    padding:1px 6px;margin-left:3px}
 .un{background:#3478f61a}
 </style></head><body>
 <header><a class="logo" href="#home">FINDLY <b>AI</b></a><nav id="nav"></nav></header>
@@ -85,15 +214,39 @@ function publish(){const g=i=>$('#'+i).value.trim(),t=document.querySelector('in
  const d={name:g('f_name'),cat:g('f_cat'),desc:g('f_desc'),color:g('f_col'),feat:g('f_feat'),loc:g('f_loc'),dt:g('f_dt'),contact:g('f_ct')};
  if(!d.name||!d.desc||!d.loc||!d.dt||!d.contact)return toast('Міндетті өрістерді толтырыңыз');
  const it={...d,id:nid(),uid:db.cur,ph:PH.slice(),status:'active',t:Date.now()};(t=='lost'?db.lost:db.found).push(it);hist(t,it.id,'—','active');runMatch(t,it);save();PH=[];toast('Хабарлама сәтті жарияланды');location.hash='#item/'+t+'/'+it.id}
-function delIt(t,id){if(!confirm('Хабарламаны жою керек пе?'))return;const a=t=='lost'?db.lost:db.found;db[t]=a.filter(x=>x.id!=id);db.m=db.m.filter(m=>t=='lost'?m.l!=id:m.f!=id);save();toast('Жойылды');location.hash='#profile'}
-function editIt(t,id){const it=(t=='lost'?db.lost:db.found).find(x=>x.id==id),n=prompt('Атауы',it.name);if(!n)return;const d=prompt('Сипаттамасы',it.desc);if(!d)return;it.name=n;it.desc=d;save();toast('Сақталды');render()}
+function delIt(t,id){if(!confirm('Хабарламаны жою керек пе?'))return;const a=t=='lost'?db.lost:db.found;
+                     db[t]=a.filter(x=>x.id!=id);db.m=db.m.filter(m=>t=='lost'?m.l!=id:m.f!=id);save();toast('Жойылды');location.hash='#profile'}
+function editIt(t,id){const it=(t=='lost'?db.lost:db.found).find(x=>x.id==id),n=prompt('Атауы',it.name);if(!n)return;const d=prompt('Сипаттамасы',it.desc);if(!d)return;
+                      it.name=n;
+                      it.desc=d;
+                      save();
+                      toast('Сақталды');
+                      render()}
 function stat(t,id,s){setSt(t,(t=='lost'?db.lost:db.found).find(x=>x.id==id),s);save();toast('Статус жаңартылды');render()}
 /* ---- claims ---- */
-function claim(mid){const p=prompt('Меншік иесі екеніңізді растайтын ерекшелікті жазыңыз');if(!p)return;const m=db.m.find(x=>x.id==mid);db.cl.push({id:nid(),m:mid,by:db.cur,proof:p,st:'pending',conf:{l:0,f:0},t:Date.now()});notify(Fo(m).uid,`«${Fo(m).name}» затына меншік құқығына өтінім түсті`,'#match');save();toast('Өтінім жіберілді');render()}
-function decide(cid,ok){const c=db.cl.find(x=>x.id==cid),m=db.m.find(x=>x.id==c.m);c.st=ok?'approved':'rejected';notify(c.by,ok?'Өтініміңіз қабылданды. Байланыс деректері ашылды':'Өтініміңіз қабылданбады','#match');if(ok){setSt('lost',L(m),'found');setSt('found',Fo(m),'found')}save();render()}
-function conf(cid){const c=db.cl.find(x=>x.id==cid),m=db.m.find(x=>x.id==c.m);c.conf[me().id==L(m).uid?'l':'f']=1;
- if(c.conf.l&&c.conf.f){c.st='done';setSt('lost',L(m),'returned');setSt('found',Fo(m),'returned');notify(L(m).uid,'Затыңыз қайтарылды','#item/lost/'+m.l);notify(Fo(m).uid,'Зат иесіне қайтарылды','#item/found/'+m.f)}save();toast('Расталды');render()}
-function seeContact(t,it){const u=me();if(!u)return false;if(u.role=='admin'||u.id==it.uid)return true;
+function claim(mid){const p=prompt('Меншік иесі екеніңізді растайтын ерекшелікті жазыңыз');
+                    if(!p)return;
+                    const m=db.m.find(x=>x.id==mid);
+                    db.cl.push({id:nid(),m:mid,by:db.cur,proof:p,st:'pending',conf:{l:0,f:0},t:Date.now()});
+                    notify(Fo(m).uid,`«${Fo(m).name}» затына меншік құқығына өтінім түсті`,'#match');
+                    save();
+                    toast('Өтінім жіберілді');
+                    render()}
+function decide(cid,ok){const c=db.cl.find(x=>x.id==cid),m=db.m.find(x=>x.id==c.m);c.st=ok?'approved':'rejected';
+                        notify(c.by,ok?'Өтініміңіз қабылданды. Байланыс деректері ашылды':'Өтініміңіз қабылданбады','#match');if(ok){setSt('lost',L(m),'found');
+                                                                                                                                     setSt('found',Fo(m),'found')}save();
+                        render()}
+function conf(cid){const c=db.cl.find(x=>x.id==cid),m=db.m.find(x=>x.id==c.m);
+                   c.conf[me().id==L(m).uid?'l':'f']=1;
+ if(c.conf.l&&c.conf.f){c.st='done';
+                        setSt('lost',L(m),'returned');
+                        setSt('found',Fo(m),'returned');
+                        notify(L(m).uid,'Затыңыз қайтарылды','#item/lost/'+m.l);notify(Fo(m).uid,'Зат иесіне қайтарылды','#item/found/'+m.f)}save();
+                   toast('Расталды');
+                   render()}
+function seeContact(t,it){const u=me();
+                          if(!u)return false;
+                          if(u.role=='admin'||u.id==it.uid)return true;
  return db.cl.some(c=>['approved','done'].includes(c.st)&&(m=>m&&L(m)&&Fo(m)&&(t=='lost'?m.l==it.id:m.f==it.id)&&(u.id==L(m).uid||u.id==Fo(m).uid))(db.m.find(x=>x.id==c.m)))}
 /* ---- views ---- */
 const badge=s=>`<span class="badge ${ST[s][1]}">${ST[s][0]}</span>`;
@@ -114,7 +267,9 @@ home(){const all=[...db.lost.map(x=>[x,'lost']),...db.found.map(x=>[x,'found'])]
 <h2>Соңғы хабарламалар</h2><div class="grid">${all.sort((a,b)=>b[0].t-a[0].t).slice(0,6).map(a=>card(a[0],a[1])).join('')||'<p class="mut">Әзірге хабарлама жоқ. Бірінші болып жариялаңыз немесе админ панелінен демо сценарийді іске қосыңыз.</p>'}</div>
 <h2 style="margin-top:28px">Платформа қалай жұмыс істейді?</h2><div class="steps">${[['Хабарлама жасаңыз','Жоғалған немесе табылған зат туралы мәлімет жариялаңыз.'],['AI ықтимал сәйкестікті табады','Алгоритм атауды, түсті, орынды және уақытты салыстырады.'],['Затыңызды қайтарып алыңыз','Меншік құқығын растап, затты қауіпсіз қайтарып алыңыз.']].map((s,i)=>`<div class="card"><b>${i+1}</b><h3 style="margin:0">${s[0]}</h3><p class="mut">${s[1]}</p></div>`).join('')}</div>`},
 lost:()=>listPage('lost'),found:()=>listPage('found'),
-item(t,id){const it=(t=='lost'?db.lost:db.found).find(x=>x.id==id);if(!it)return'<div class="card">Хабарлама табылмады</div>';const u=me(),own=u&&(u.id==it.uid||u.role=='admin');
+item(t,id){const it=(t=='lost'?db.lost:db.found).find(x=>x.id==id);
+           if(!it)return'<div class="card">Хабарлама табылмады</div>';
+           const u=me(),own=u&&(u.id==it.uid||u.role=='admin');
  const hs=db.h.filter(h=>h.type==t&&h.rid==it.id);
  return`<a href="#${t}">← Артқа</a><div class="card" style="margin-top:10px"><div class="row">${badge(it.status)}<span class="badge ${t=='lost'?'x':'g'}">${t=='lost'?'Жоғалды':'Табылды'}</span>${dm(it)}</div><h1 style="margin:6px 0">${esc(it.name)}</h1>
 <div class="prev">${(it.ph||[]).map(p=>`<img src="${p}" alt="">`).join('')}</div>
@@ -163,6 +318,7 @@ function render(){const u=me(),h=(location.hash||'#home').slice(1).split('/'),un
  const L_=[['home','Басты бет'],['lost','Жоғалған заттар'],['found','Табылған заттар'],['new','Хабарлама жасау'],['match','AI сәйкестендіру'],['stats','Статистика'],['profile','Профиль'],['notif','Хабарламалар'+(un?`<span class="nb">${un}</span>`:'')]];if(u&&u.role=='admin')L_.push(['admin','Админ']);
  $('#nav').innerHTML=L_.map(x=>`<a href="#${x[0]}" class="${h[0]==x[0]?'on':''}">${x[1]}</a>`).join('')+(u?'':'<a href="#auth" class="'+(h[0]=='auth'?'on':'')+'">Кіру</a>');
  $('#app').innerHTML=(V[h[0]]||V.home)(h[1],h[2])}
-window.onhashchange=()=>{render();scrollTo(0,0)};
+window.onhashchange=()=>{render();
+                         scrollTo(0,0)};
 (async()=>{if(!db.u.some(u=>u.role=='admin')){db.u.push({id:nid(),name:'Әкімші',email:'admin@findly.kz',pw:await sha('admin123'),role:'admin',t:Date.now()});save()}render()})();
 </script></body></html>
